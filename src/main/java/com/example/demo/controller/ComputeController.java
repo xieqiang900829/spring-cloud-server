@@ -35,8 +35,8 @@ public class ComputeController {
      */
     @GetMapping("/sub/{a}")
     public void sub(@PathVariable("a")Long a) {
-        String  s=  "大家好，我是减法"+(a-100);
-        System.out.print(s);
+        String  s=  "大家好，我是减法 参数为："+(a-100);
+        System.out.println(s);
     }
 
 
