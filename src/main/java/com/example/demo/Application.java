@@ -2,13 +2,15 @@ package com.example.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
+@EnableCircuitBreaker
 @EnableDiscoveryClient
 @SpringBootApplication
-public class SpringbootdemoApplication {
+public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringbootdemoApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 }
