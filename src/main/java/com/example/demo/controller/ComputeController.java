@@ -6,6 +6,8 @@ import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Random;
+
 
 /**
  * Created by WD42700 on 2018/8/19.
@@ -19,6 +21,7 @@ public class ComputeController {
 
     private final Logger logger = Logger.getLogger(getClass());
 
+    public  static  int  count =0;
     @Autowired
     private DiscoveryClient client;
 
@@ -39,6 +42,7 @@ public class ComputeController {
     @GetMapping("/sub/{a}")
     public void sub(@PathVariable("a")Long a) {
         String  s=  "大家好，我是减法 参数为："+(a-100);
+
         System.out.println(s);
     }
 
@@ -49,8 +53,25 @@ public class ComputeController {
      */
     @GetMapping("/multi/{a}/{b}")
     public Long multi(@PathVariable("a")Long a,@PathVariable("b")Long b) {
-        String  s=  "大家好，我是乘法 参数为   a:"+a+"   b:"+b;
-        System.out.println(s);
+        //String  s=  "大家好，我是乘法 参数为   a:"+a+"   b:"+b;
+
+        count++;
+        System.out.println("乘法第"+count+"次被执行");
+
+        Random  r =new  Random();
+        int temp = r.nextInt(3);
+        if(temp == 2){
+            System.out.println("开始睡眠");
+            try {
+                Thread.sleep(5000L);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println("睡眠结束");
+        }
+
+
+        //System.out.println(s);
         return  a*b;
     }
 
