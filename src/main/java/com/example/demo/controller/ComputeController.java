@@ -61,13 +61,8 @@ public class ComputeController {
      * @param
      * @return
      */
-    @ApiOperation(value="乘法", notes="乘法标记")// 使用该注解描述接口方法信息
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "a", value = "a", required = true, dataType = "Long", paramType="path"),
-            @ApiImplicitParam(name = "b", value = "b", required = true, dataType = "Long", paramType="path")
-    })// 使用该注解描述方法参数信息，此处需要注意的是paramType参数，需要配置成path，否则在UI中访问接口方法时，
     @GetMapping("/multi/{a}/{b}")
-    public Long multi(@PathVariable("a")Long a,@PathVariable("b")Long b) {
+    public String multi(@PathVariable("a")Long a,@PathVariable("b")Long b) {
         count++;
         System.out.println("乘法第"+count+"次被执行");
 
@@ -85,7 +80,7 @@ public class ComputeController {
 
 
         //System.out.println(s);
-        return  a*b;
+        return  a*b+"";
     }
 
 
