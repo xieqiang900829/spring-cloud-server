@@ -61,13 +61,13 @@ public class ComputeController {
         Random  r =new  Random();
         int temp = r.nextInt(3);
         if(temp == 2){
-            System.out.println("开始睡眠");
+            //System.out.println("开始睡眠");
             try {
                 Thread.sleep(5000L);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println("睡眠结束");
+           // System.out.println("睡眠结束");
         }
 
 
